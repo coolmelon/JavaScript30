@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS Drum Kit</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>A Drum Machine with Vanilla JavaScript</h1>
+      <br />
+      <h2>Please click or press the key to play it ...</h2>
+    </header>
+
+    <div class="keys">
+      <div data-key="65" class="key">
+        <kbd>A</kbd>
+        <span class="sound">clap</span>
+      </div>
+      <div data-key="83" class="key">
+        <kbd>S</kbd>
+        <span class="sound">hihat</span>
+      </div>
+      <div data-key="68" class="key">
+        <kbd>D</kbd>
+        <span class="sound">kick</span>
+      </div>
+      <div data-key="70" class="key">
+        <kbd>F</kbd>
+        <span class="sound">openhat</span>
+      </div>
+      <div data-key="71" class="key">
+        <kbd>G</kbd>
+        <span class="sound">boom</span>
+      </div>
+      <div data-key="72" class="key">
+        <kbd>H</kbd>
+        <span class="sound">ride</span>
+      </div>
+      <div data-key="74" class="key">
+        <kbd>J</kbd>
+        <span class="sound">snare</span>
+      </div>
+      <div data-key="75" class="key">
+        <kbd>K</kbd>
+        <span class="sound">tom</span>
+      </div>
+      <div data-key="76" class="key">
+        <kbd>L</kbd>
+        <span class="sound">tink</span>
+      </div>
+    </div>
+
+    <audio data-key="65" src="sounds/clap.wav"></audio>
+    <audio data-key="83" src="sounds/hihat.wav"></audio>
+    <audio data-key="68" src="sounds/kick.wav"></audio>
+    <audio data-key="70" src="sounds/openhat.wav"></audio>
+    <audio data-key="71" src="sounds/boom.wav"></audio>
+    <audio data-key="72" src="sounds/ride.wav"></audio>
+    <audio data-key="74" src="sounds/snare.wav"></audio>
+    <audio data-key="75" src="sounds/tom.wav"></audio>
+    <audio data-key="76" src="sounds/tink.wav"></audio>
+
+    <footer class="footer">
+      <div class="container">
+        <p>
+          By Jenna Hu, a JS training page, reference and implemented from:<a
+            href="https://javascript30.com/"
+            target="_blank"
+          >
+            JavaScript30</a
+          >
+          Challenge/ Tutorial.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // this version adds click functions
+      const keyCodeList = [65, 83, 68, 70, 71, 72, 74, 75, 76];
+
+      function playAudio(code) {
+        var audioToSelect = document.querySelector(`audio[data-key="${code}"]`);
+        console.log(audioToSelect);
+        audioToSelect.currentTime = 0;
+        audioToSelect.play();
+      }
+
+      function showKey(code) {
+        var divToSelect = document.querySelector(`div[data-key="${code}"]`);
+        divToSelect.classList.add("playing");
+        divToSelect.addEventListener("transitionend", removeTransition);
+      }
+
+      function removeTransition(event) {
+        if (event.propertyName !== "transform") return;
+        event.target.classList.remove("playing");
+      }
+
+      function clickFunction() {
+        let clickCode = this.getAttribute("data-key");
+        playAudio(clickCode);
+        showKey(clickCode);
+      }
+
+      window.addEventListener("keydown", function(event) {
+        let code = event.keyCode;
+        if (keyCodeList.includes(code)) {
+          playAudio(code);
+          showKey(code);
+        }
+      });
+
+      var keys = document.getElementsByClassName("key");
+
+      for (key of keys) {
+        key.onclick = clickFunction;
+      }
+    </script>
+  </body>
+</html>
