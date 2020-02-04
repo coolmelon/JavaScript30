@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS + CSS Clock</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Saira&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="clock">
+      <div class="clock-face">
+        <div class="hand hour-hand"></div>
+        <div class="hand min-hand"></div>
+        <div class="hand second-hand"></div>
+      </div>
+    </div>
+    <div class="title">JS CLOCK</div>
+    <div class="clock-panel">
+      <div class="panel" id="hour-panel">00</div>
+      <span>&nbsp:&nbsp</span>
+      <div class="panel" id="min-panel">00</div>
+      <span>&nbsp:&nbsp</span>
+      <div class="panel" id="second-panel">00</div>
+    </div>
+
+    <style>
+      html {
+        background: #333;
+        background-size: cover;
+        font-family: "Saira", sans-serif;
+        text-align: center;
+        font-size: 10px;
+        color: #ddd;
+      }
+
+      body {
+        margin: 5rem 2rem 2rem 2rem;
+        font-size: 2rem;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-height: 100vh;
+        align-items: center;
+      }
+
+      .clock {
+        width: 20rem;
+        height: 20rem;
+        border: 5px solid #ccc;
+        border-radius: 50%;
+        margin: 30px auto 10px auto;
+        position: relative;
+        padding: 2rem;
+      }
+
+      .clock-face {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transform: translateY(
+          -3px
+        ); /* account for the height of the clock hands */
+      }
+
+      .hand {
+        background: #ccc;
+        position: absolute;
+        border-radius: 10%;
+        top: 50%;
+        transform: rotate(90deg);
+        transform-origin: 100%;
+        transition: all 0.5s;
+        transition-timing-function: ease;
+      }
+
+      .hour-hand {
+        width: 30%;
+        left: 20%;
+        height: 6px;
+      }
+
+      .min-hand {
+        width: 40%;
+        left: 10%;
+        height: 4px;
+        background: rgb(14, 155, 190);
+      }
+
+      .second-hand {
+        width: 50%;
+        height: 3px;
+        background: orangered;
+      }
+
+      .title {
+        font-size: 3rem;
+        margin: 2rem 0;
+      }
+      .clock-panel {
+        display: grid;
+        width: 40vw;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        font-size: 5rem;
+        justify-content: space-evenly;
+      }
+    </style>
+    <script>
+      const secondHand = document.querySelector(".second-hand");
+      const minsHand = document.querySelector(".min-hand");
+      const hourHand = document.querySelector(".hour-hand");
+
+      const setTime = () => {
+        setInterval(() => {
+          const timeNow = new Date();
+          const seconds = timeNow.getSeconds();
+          const mins = timeNow.getMinutes();
+          const hour = timeNow.getHours();
+
+          //  console.log(`${hour} : ${mins} : ${seconds}`);
+
+          if (seconds == 0) {
+            secondHand.style["transition"] = "none";
+          }
+          if (mins == 0) {
+            minsHand.style["transition"] = "none";
+          }
+          if (hour == 0) {
+            hourHand.style["transition"] = "none";
+          }
+
+          const secondsDegrees = (seconds / 60) * 360 + 90;
+          const minsDegrees = (mins / 60) * 360 + (seconds / 60) * 6 + 90;
+          const hourDegrees = (hour / 12) * 360 + (mins / 60) * 30 + 90;
+          secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
+          minsHand.style.transform = `rotate(${minsDegrees}deg)`;
+          hourHand.style.transform = `rotate(${hourDegrees}deg)`;
+          document.getElementById("hour-panel").innerHTML = hour;
+          document.getElementById("min-panel").innerHTML = mins;
+          document.getElementById("second-panel").innerHTML = seconds;
+        }, 1000);
+      };
+
+      setTime();
+    </script>
+  </body>
+</html>
