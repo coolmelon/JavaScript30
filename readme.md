@@ -8,6 +8,7 @@ and/or (3) update style or responsive css code.
 ### Current progress (what has been updated): 
 1. 01-drum-kit;
 2. 02-JS and CSS Clock;
+3. 03- CSS Variables;
 
 
 Please see the original starting and solution codes [here](https://github.com/wesbos/JavaScript30).  
