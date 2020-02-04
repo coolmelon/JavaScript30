@@ -1,9 +1,14 @@
 # JavaScript30 Implementations
 
-This is Wes Bos's JavaScript 30 challenge, added: (1) vanilla JS code with additional functions, or (2) a react version, and/or (3) responsive css code. 
+This is Wes Bos's JavaScript 30 challenge, my implementation version, by adding: 
+(1) vanilla JS code with additional functions, 
+and/or (2) a react version, 
+and/or (3) update style or responsive css code. 
 
 ### Current progress (what has been updated): 
-1. 01-drum-kit 
+1. 01-drum-kit;
+2. 02-JS and CSS Clock;
+
 
 Please see the original starting and solution codes [here](https://github.com/wesbos/JavaScript30).  
 
