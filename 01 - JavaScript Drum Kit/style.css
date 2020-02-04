@@ -63,12 +63,6 @@ kbd {
   color: #ffc600;
 }
 
-footer {
-  text-align: center;
-  padding: 4rem 2rem;
-  font-size: 1rem;
-}
-
 @media screen and (max-width: 500px) {
   .keys {
     display: grid;
@@ -92,11 +86,5 @@ footer {
     color: white;
     background: rgba(0, 0, 0, 0.4);
     text-shadow: 0 0 0.5rem black;
-  }
-
-  footer {
-    text-align: center;
-    padding: 3rem 0.5rem;
-    font-size: 1rem;
   }
 }
