@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Grid Table</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Amatic+SC"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+  <body>
+    <style>
+      html {
+        box-sizing: border-box;
+        background: #ffc600;
+        font-family: "helvetica neue";
+        font-weight: 200;
+      }
+
+      body {
+        margin: 0;
+      }
+
+      *,
+      *:before,
+      *:after {
+        box-sizing: inherit;
+      }
+
+      .panels {
+        height: 100vh;
+        max-height: 100%;
+        overflow: hidden;
+        display: grid;
+        grid-template-columns: repeat(6, auto);
+      }
+
+      .panel {
+        background: #6b0f9c;
+        box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.1);
+        color: white;
+        text-align: center;
+        transition: all 0.7s ease-in-out;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        grid-column: span 3;
+      }
+
+      .panel1 {
+        background-image: url(https://source.unsplash.com/gYl-UtwNg_I/1500x1500);
+      }
+      .panel2 {
+        background-image: url(https://source.unsplash.com/rFKUFzjPYiQ/1500x1500);
+      }
+      .panel3 {
+        background-image: url(https://images.unsplash.com/photo-1465188162913-8fb5709d6d57?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&w=1500&h=1500&fit=crop&s=967e8a713a4e395260793fc8c802901d);
+      }
+      .panel4 {
+        background-image: url(https://source.unsplash.com/ITjiVXcwVng/1500x1500);
+      }
+
+      /* Flex Children */
+      .panel > * {
+        margin: 0px;
+        width: 100%;
+        transition: transform 0.7s ease-in-out;
+      }
+
+      .panel > *:first-child {
+        transform: translateX(-100vw);
+      }
+
+      .panel > *:last-child {
+        transform: translateX(100vw);
+      }
+
+      .panel p {
+        text-transform: uppercase;
+        font-family: "Amatic SC", cursive;
+        text-shadow: 0 0 4px rgba(0, 0, 0, 0.72), 0 0 14px rgba(0, 0, 0, 0.45);
+      }
+
+      .panel p:nth-child(2) {
+        font-size: 3rem;
+      }
+
+      .panel.open p {
+        font-size: 4rem;
+        margin: 8rem 4rem;
+      }
+      .panel.open > *:first-child {
+        font-size: 2rem;
+        transform: translateX(5vw);
+        transition-delay: 0.2s;
+      }
+
+      .panel.open > *:last-child {
+        font-size: 2rem;
+        transform: translateX(-5vw);
+        transition-delay: 0.2s;
+      }
+    </style>
+
+    <div class="panels">
+      <div class="panel panel1">
+        <p>Hey</p>
+        <p>Let's</p>
+        <p>Dance</p>
+      </div>
+      <div class="panel panel2">
+        <p>Give</p>
+        <p>Take</p>
+        <p>Receive</p>
+      </div>
+      <div class="panel panel3">
+        <p>Experience</p>
+        <p>It</p>
+        <p>Today</p>
+      </div>
+      <div class="panel panel4">
+        <p>Give</p>
+        <p>All</p>
+        <p>You can</p>
+      </div>
+    </div>
+
+    <script>
+      const panels = document.querySelectorAll(".panel");
+      let selectedClass = "";
+      function onClick() {
+        if (!this.className.includes("open")) {
+          panels.forEach(i => i.classList.remove("open"));
+          this.classList.add("open");
+        } else {
+          panels.forEach(i => i.classList.remove("open"));
+        }
+      }
+      panels.forEach(i => i.addEventListener("click", onClick));
+    </script>
+  </body>
+</html>
