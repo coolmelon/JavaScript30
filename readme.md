@@ -5,10 +5,11 @@ This is Wes Bos's JavaScript 30 challenge, my implementation version, by adding:
 and/or (2) a react version, 
 and/or (3) update style or responsive css code. 
 
-### Current progress (what has been updated): 
+### Current progress (listing what has been updated, others remained unchanged as original forked or removed): 
 1. 01-drum-kit;
 2. 02-JS and CSS Clock;
 3. 03- CSS Variables;
+5. 05 -Flex Panel Gallery
 
 
 Please see the original starting and solution codes [here](https://github.com/wesbos/JavaScript30).  
