@@ -6,10 +6,11 @@ and/or (2) a react version,
 and/or (3) update style or responsive css code. 
 
 ### Current progress (listing what has been updated, others remained unchanged as original forked or removed): 
-1. 01-drum-kit;
-2. 02-JS and CSS Clock;
-3. 03- CSS Variables;
-5. 05 -Flex Panel Gallery
+- 01-drum-kit;
+- 02-JS and CSS Clock;
+- 03-CSS Variables;
+- 05-Flex Panel Gallery
+- 06-Type Ahead
 
 
 Please see the original starting and solution codes [here](https://github.com/wesbos/JavaScript30).  
