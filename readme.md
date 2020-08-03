@@ -13,6 +13,7 @@ and/or (3) update style or responsive css code.
 - 05-Flex Panel Gallery
 - 06-Type Ahead
 - 08 - Fun with HTML5 Canvas ( added clear canvas button and canvas frame)
+- 10 - Hold Shift and Check Checkboxes (added uncheck shift action, and checkall & uncheckall top box)
 
 Please see the original starting and solution codes [here](https://github.com/wesbos/JavaScript30).
 
